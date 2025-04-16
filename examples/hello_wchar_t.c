@@ -218,24 +218,3 @@ int main(void) /* WINDOWS ONLY */
 #ifdef _MSC_VER
 #pragma warning(default:4996)
 #endif
-
-
-/*
-MinGW needs gcc >= v4.9 otherwise some headers are incomplete
-> gcc -o hello.exe hello.c tinyfiledialogs.c -LC:/mingw/lib -lcomdlg32 -lole32
-
-TinyCC needs >= v0.9.27 (+ tweaks - contact me) otherwise some headers are missing
-> tcc -o hello.exe hello.c tinyfiledialogs.c ^
-	-isystem C:\tcc\winapi-full-for-0.9.27\include\winapi ^
-	-lcomdlg32 -lole32 -luser32 -lshell32
-
-Borland C: > bcc32c -o hello.exe hello.c tinyfiledialogs.c
-OpenWatcom v2: create a character-mode executable project.
-
-VisualStudio :
-	Create a console application project,
-	it links against comdlg32.lib & ole32.lib.
-
-VisualStudio command line :
-	> cl hello.c tinyfiledialogs.c comdlg32.lib ole32.lib user32.lib shell32.lib /W4
-*/
