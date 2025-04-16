@@ -22,7 +22,8 @@ endif()
 
 add_library(tinyfiledialogs)
 
-file(GLOB_RECURSE TFD_SRC "./*" )
+# WARN: No glob, since it somehow grabs CmakeCXXCompiler.cpp files which have a placeholder main() symbol there.
+file(GLOB_RECURSE TFD_SRC "./tinyfiledialogs.c" "./tinyfiledialogs.h" "./tinyfd_moredialogs.c" "./tinyfd_moredialogs.h")
 target_sources(tinyfiledialogs PUBLIC ${TFD_SRC})
 
 target_include_directories(tinyfiledialogs PUBLIC ".")

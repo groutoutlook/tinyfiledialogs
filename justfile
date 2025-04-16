@@ -28,16 +28,8 @@ alias r := run
 default_args := 'args here'
 run args=default_args:
     @Write-Host {{default_args}} -ForegroundColor Red
-    ./out/hello.exe
-
-alias wt := buildenv
-buildenv:
-    wt new-tab -d "$pwd" -p "Developer PowerShell for VS 2022" --tabColor '#FFFFFF'
-
-# setalias:
-#     #!{{ shebang }}
-#     Set-Alias -Name r -Value just -Scope Global -Option AllScope 
-
+    out\build\x64-debug\bin\hello.exe
+# INFO: as now it correctly build in VS2022 CMake.
+# TODO: will fix this to run from just easier.
 alias b := build
-build: 
-    cl examples/hello.c tinyfiledialogs.c comdlg32.lib ole32.lib user32.lib shell32.lib /W4 /Feout\hello.exe
+build: placeholder

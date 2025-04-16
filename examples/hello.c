@@ -72,7 +72,7 @@ misrepresented as being the original software.
 
 #include <stdio.h>
 #include <string.h>
-#include "../tinyfiledialogs.h"
+#include "tinyfiledialogs.h"
 
 #ifdef _MSC_VER
 #pragma warning(disable:4996) /* silences warnings about strcpy strcat fopen*/

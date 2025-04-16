@@ -1,4 +1,6 @@
-# tiny file dialogs ( cross-platform C/C++ ) v3.19.1 [Jan 27, 2025]
+# tiny file dialogs (cross-platform C/C++)
+
+v3.19.1 [Jan 27, 2025]
 
 **Forked on 2025-04-10.**
 

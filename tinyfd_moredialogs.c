@@ -36,7 +36,7 @@ https://stackoverflow.com/a/47651444
 #include <stdlib.h>
 #include <string.h>
 
-#include "../tinyfiledialogs.h"
+#include "tinyfiledialogs.h"
 
 #define MAX_PATH_OR_CMD 1024 /* _MAX_PATH or MAX_PATH */
 int tfd_quoteDetected(char const * aString);
