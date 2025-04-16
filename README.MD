@@ -92,7 +92,7 @@ char const * tinyfd_colorChooser(
 - Untested on other platform as OSX, Linux or BSD, may try WSL though.
 
 ### TODO
-- Rewrite it or wrap it in a RAII manner.
+- Finish the C++ wrapper in `tfd.hpp`. As now there are 2 of the most important wrapped, which is `tfd::openFile` and `tfd::openFolder`.
 
 ## Note for OSX/BSD/Linux
 - On OSX supported from 10.4 to latest (maybe even older versions)
