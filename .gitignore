@@ -1,3 +1,4 @@
-hello.obj
+*.obj
 out
-tinyfiledialogs.obj
+
+.vs

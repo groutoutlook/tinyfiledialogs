@@ -40,4 +40,4 @@ buildenv:
 
 alias b := build
 build: 
-    cl hello.c tinyfiledialogs.c comdlg32.lib ole32.lib user32.lib shell32.lib /W4 /Feout\hello.exe
+    cl examples/hello.c tinyfiledialogs.c comdlg32.lib ole32.lib user32.lib shell32.lib /W4 /Feout\hello.exe
