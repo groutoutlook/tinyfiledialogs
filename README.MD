@@ -1,4 +1,4 @@
-# tiny file dialogs (cross-platform C/C++)
+# `tinyfiledialogs` (pure C)
 
 v3.19.1 [Jan 27, 2025]
 
@@ -18,21 +18,21 @@ int tinyfd_notifyPopup(
     char const * aIconType ); // "info" "warning" "error"
 
 int tinyfd_messageBox(
-    char const * aTitle , // NULL or ""
-    char const * aMessage , // NULL or "" may contain \n \t
+    char const * aTitle ,
+    char const * aMessage , 
     char const * aDialogType , // "ok" "okcancel" "yesno" "yesnocancel"
-    char const * aIconType , // "info" "warning" "error" "question"
+    char const * aIconType ,
     int aDefaultButton );
         // 0 for cancel/no , 1 for ok/yes , 2 for no in yesnocancel
 
 char const * tinyfd_inputBox(
-    char const * aTitle , // NULL or ""
-    char const * aMessage , // NULL or "" (\n and \t have no effect)
+    char const * aTitle , 
+    char const * aMessage ,
     char const * aDefaultInput ); // NULL for a passwordBox, "" for an inputbox
         // returns NULL on cancel
 
 char const * tinyfd_saveFileDialog(
-    char const * aTitle , // NULL or ""
+    char const * aTitle , 
     char const * aDefaultPathAndOrFile , // NULL or "" , ends with / to set only a directory
     int aNumOfFilterPatterns , // 0 (1 in the following example)
     char const * const * aFilterPatterns , // NULL or char const * lFilterPatterns[1]={"*.txt"};
@@ -40,22 +40,22 @@ char const * tinyfd_saveFileDialog(
         // returns NULL on cancel
 
 char const * tinyfd_openFileDialog(
-    char const * aTitle , // NULL or ""
-    char const * aDefaultPathAndOrFile , // NULL or "" , ends with / to set only a directory
-    int aNumOfFilterPatterns , // 0 (2 in the following example)
-    char const * const * aFilterPatterns , // NULL or char const * lFilterPatterns[2]={"*.png","*.jpg"};
+    char const * aTitle , 
+    char const * aDefaultPathAndOrFile , 
+    int aNumOfFilterPatterns ,
+    char const * const * aFilterPatterns , 
     char const * aSingleFilterDescription , // NULL or "image files"
     int aAllowMultipleSelects ); // 0
         // in case of multiple files, the separator is |
         // returns NULL on cancel
 
 char const * tinyfd_selectFolderDialog(
-    char const * aTitle , // NULL or ""
+    char const * aTitle , 
     char const * aDefaultPath ); // NULL or ""
         // returns NULL on cancel
 
 char const * tinyfd_colorChooser(
-    char const * aTitle , // NULL or ""
+    char const * aTitle , 
     char const * aDefaultHexRGB , // NULL or "#FF0000‚Ç¥
     unsigned char const aDefaultRGB[3] , // unsigned char lDefaultRGB[3] = { 0 , 128 , 255 };
     unsigned char aoResultRGB[3] ); // unsigned char lResultRGB[3];
@@ -88,8 +88,11 @@ char const * tinyfd_colorChooser(
 - [C# & LUA via dll in this folder of original repo](https://sourceforge.net/p/tinyfiledialogs/code/ci/master/tree/dll_cs_lua_R_fortran_pascal/)
 
 ### Build on Windows
-- I use CMake to build from VS2022. It worked as intended.
+- I use CMake to build from VS2022 with C++ projects. It worked as intended
 - Untested on other platform as OSX, Linux or BSD, may try WSL though.
+
+### TODO
+- Rewrite it or wrap it in a RAII manner.
 
 ## Note for OSX/BSD/Linux
 - On OSX supported from 10.4 to latest (maybe even older versions)
@@ -98,5 +101,3 @@ char const * tinyfd_colorChooser(
 - On OSX/BSD: it only tries command line calls, so no linking is need.
 - On OSX/BSD: you need one of: `applescript, kdialog, zenity, matedialog, shellementary, qarma, yad, python (2 or 3) with tkinter/python-dbus, Xdialog` or `curses dialog`
 - In the absence of those it will use `gdialog, gxmessage or whiptail` with a `textinputbox`.
-- If nothing is found, it switches to basic console input, it opens a console if needed (requires xterm + bash).
-
