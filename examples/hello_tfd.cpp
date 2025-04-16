@@ -1,6 +1,6 @@
 #include "tfd.hpp"
 #include <print>
-
+#include <iostream>
 auto main() -> int {
 
 	auto retPathFiles = tfd::openFile(
@@ -20,5 +20,7 @@ auto main() -> int {
 
 		std::println("folder: {}", retPath.string());
 	}
+	std::println("Press any key to continue...");
+	int ch = std::cin.get();
 	return 0;
 }
