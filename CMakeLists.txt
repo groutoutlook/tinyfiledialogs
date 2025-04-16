@@ -2,8 +2,9 @@ cmake_minimum_required(VERSION 4.0)
 
 set(BUILD_SHARED_LIBS OFF CACHE BOOL "Build using shared libraries" FORCE)
 
-option(TFD_BUILD_EXAMPLES "Build the example executable" OFF)
-option(TFD_INSTALL        "Enable the install command"   ON)
+set(TFD_BUILD_EXAMPLES OFF CACHE BOOL "Build the example executable")
+#option(TFD_BUILD_EXAMPLES "Build the example executable" OFF)
+# option(TFD_INSTALL        "Enable the install command"   ON)
 
 project(tinyfiledialogs)
 enable_language(C)
