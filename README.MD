@@ -80,24 +80,27 @@ char const * tinyfd_colorChooser(
 
 ## Note for Windows
 - Windows is fully supported from XP to 11 (maybe even older versions)
-- On Windows, console mode only make sense for console applications.
 - On Windows, console mode is not implemented for wchar_T UTF-16.
-- On Windows, for curses dialogs console mode, dialog.exe should be copied [somewhere on your executable path](http://andrear.altervista.org/home/cdialog.php)
-- On Windows link against Comdlg32.lib and Ole32.lib (on Windows the no linking claim is a lie).
-    - Update 2025-04: actually it's no need to specify linking those library now in CMake/Windows.
+- On Windows, for `curses` dialogs console mode, `dialog.exe` should be copied [somewhere on your executable path](http://andrear.altervista.org/home/cdialog.php)
+    - Update 2025-04: or you could just use `scoop install main/cdialog` instead.
+- On Windows link against `Comdlg32.lib` and `Ole32.lib` (on Windows the no linking claim is a lie).
+    - Update 2025-04: actually it's no need to specify linking those library now in CMake/VS2022/Windows.
 - [C# & LUA via dll in this folder of original repo](https://sourceforge.net/p/tinyfiledialogs/code/ci/master/tree/dll_cs_lua_R_fortran_pascal/)
 
 ### Build on Windows
-- I use CMake to build from VS2022 with C++ projects. It worked as intended
+- I use CMake to build from VS2022 with C++ projects. It worked as intended.
+    - Motive for this work is for using `CPM.cmake` or `FetchContent` to integrate this library in CMake projects.
+        - Including files is an archaic method, won't do that ever again.
+        - `vcpkg` is cumbersome, you have to make your own port' registries, haven't tried so I don't really care.
 - Untested on other platform as OSX, Linux or BSD, may try WSL though.
 
 ### TODO
 - Finish the C++ wrapper in `tfd.hpp`. As now there are 2 of the most important wrapped, which is `tfd::openFile` and `tfd::openFolder`.
+- Make `tfd::openFolder` using newer Win32 API to pick folder, since it's terrible with current GUI.
+- Give people options to choose backend, either from CLI options or a config struct.
+    - Since we also has `zenity` and `tkinter` in Windows as File Picker. There are several more.
+    - Could also try wrapping `pwsh` call since it's also having a lot of premade modules.
+        - Browser picker? Could also be an option.
+- Rework console since Windows Terminal is really capable now.
+- More curated TUI? Since `curses` on Windows is lost cause.
 
-## Note for OSX/BSD/Linux
-- On OSX supported from 10.4 to latest (maybe even older versions)
-- On OSX, [the package `dialog` can be installed here](http://macappstore.org/dialog) or [macport](http://macports.org) or [`homebrew`](https://formulae.brew.sh/formula/dialog)
-    - `dialog` must be installed to run in `curses` dialogs in console mode.
-- On OSX/BSD: it only tries command line calls, so no linking is need.
-- On OSX/BSD: you need one of: `applescript, kdialog, zenity, matedialog, shellementary, qarma, yad, python (2 or 3) with tkinter/python-dbus, Xdialog` or `curses dialog`
-- In the absence of those it will use `gdialog, gxmessage or whiptail` with a `textinputbox`.

@@ -3,8 +3,6 @@ cmake_minimum_required(VERSION 4.0)
 set(BUILD_SHARED_LIBS OFF CACHE BOOL "Build using shared libraries" FORCE)
 
 set(TFD_BUILD_EXAMPLES OFF CACHE BOOL "Build the example executable")
-#option(TFD_BUILD_EXAMPLES "Build the example executable" OFF)
-# option(TFD_INSTALL        "Enable the install command"   ON)
 
 project(tinyfiledialogs)
 enable_language(C)
@@ -31,7 +29,6 @@ file(GLOB_RECURSE TFD_SRC "./tinyfiledialogs.c" "./tinyfiledialogs.h" "./tinyfd_
 target_sources(tinyfiledialogs PUBLIC ${TFD_SRC})
 
 target_include_directories(tinyfiledialogs PUBLIC ".")
-
 target_compile_features(tinyfiledialogs PUBLIC cxx_std_23)
 
 if (TFD_BUILD_EXAMPLES)
