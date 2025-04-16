@@ -1,41 +1,11 @@
-/* SPDX-License-Identifier: ZLIB
-Copyright (c) 2014 - 2023 Guillaume Vareille http://ysengrin.com
-  _________
- /         \ tinyfiledialogs v3.9.0 [Nov 3, 2022] zlib licence
- |tiny file|
- | dialogs |
- \____  ___/ http://tinyfiledialogs.sourceforge.net
-      \|     git clone http://git.code.sf.net/p/tinyfiledialogs/code tinyfd
-
-If you like tinyfiledialogs, please upvote my stackoverflow answer
-https://stackoverflow.com/a/47651444
-
-- License -
- This software is provided 'as-is', without any express or implied
- warranty.  In no event will the authors be held liable for any damages
- arising from the use of this software.
- Permission is granted to anyone to use this software for any purpose,
- including commercial applications, and to alter it and redistribute it
- freely, subject to the following restrictions:
- 1. The origin of this software must not be misrepresented; you must not
- claim that you wrote the original software.  If you use this software
- in a product, an acknowledgment in the product documentation would be
- appreciated but is not required.
- 2. Altered source versions must be plainly marked as such, and must not be
- misrepresented as being the original software.
- 3. This notice may not be removed or altered from any source distribution.
-*/
-
 #ifndef __sun
 #ifndef _POSIX_C_SOURCE
 #define _POSIX_C_SOURCE 2 /* to accept POSIX 2 in old ANSI C standards */
 #endif
 #endif
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
 #include "tinyfiledialogs.h"
 
 #define MAX_PATH_OR_CMD 1024 /* _MAX_PATH or MAX_PATH */
@@ -53,9 +23,7 @@ int tfd_zenityPresent(void);
 int tfd_zenity3Present(void);
 #endif /*_WIN32 */
 
-
 /* not cross platform - unix zenity only */
-/* contributed by Attila Dusnoki */
 #ifndef _WIN32
 char * tinyfd_arrayDialog(
         char const * aTitle , /* "" */

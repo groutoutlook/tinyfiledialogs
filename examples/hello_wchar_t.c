@@ -1,63 +1,8 @@
-/* SPDX-License-Identifier: Zlib
-Copyright (c) 2014 - 2024 Guillaume Vareille http://ysengrin.com
-	 ________________________________________________________________
-	|                                                                |
-	| 100% compatible C C++  ->  You can rename this .c file as .cpp |
-	|________________________________________________________________|
-
-********* TINY FILE DIALOGS OFFICIAL WEBSITE IS ON SOURCEFORGE *********
-  _________
- /         \ hello_wchar_t.c v3.19.1 [Jan 27, 2025]
- |tiny file| Hello WCHAR_T windows only file created [November 9, 2014]
- | dialogs |
- \____  ___/ http://tinyfiledialogs.sourceforge.net
-	  \|     git clone http://git.code.sf.net/p/tinyfiledialogs/code tinyfd
-			  ____________________________________________
-			 |                                            |
-			 |   email: tinyfiledialogs at ysengrin.com   |
-			 |____________________________________________|
-	  ________________________________________________________________
-	 |                                                                |
-	 | this file is for windows only it uses wchar_t UTF-16 functions |
-	 |________________________________________________________________|
-
-If you like tinyfiledialogs, please upvote my stackoverflow answer
-https://stackoverflow.com/a/47651444
-
-- License -
-This software is provided 'as-is', without any express or implied
-warranty.  In no event will the authors be held liable for any damages
-arising from the use of this software.
-Permission is granted to anyone to use this software for any purpose,
-including commercial applications, and to alter it and redistribute it
-freely, subject to the following restrictions:
-1. The origin of this software must not be misrepresented; you must not
-claim that you wrote the original software.  If you use this software
-in a product, an acknowledgment in the product documentation would be
-appreciated but is not required.
-2. Altered source versions must be plainly marked as such, and must not be
-misrepresented as being the original software.
-3. This notice may not be removed or altered from any source distribution.
-
-  See compilation instructions at the end of this file
-
-     __________________________________________
-    |  ______________________________________  |
-    | |                                      | |
-    | | DO NOT USE USER INPUT IN THE DIALOGS | |
-    | |______________________________________| |
-    |__________________________________________|
-*/
-
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
 
 #include "tinyfiledialogs.h"
-
-#ifdef _MSC_VER
-#pragma warning(disable:4996) /* silences warning about wcscpy*/
-#endif
 
 int main(void) /* WINDOWS ONLY */
 {
@@ -214,7 +159,3 @@ int main(void) /* WINDOWS ONLY */
 
 	return 0;
 }
-
-#ifdef _MSC_VER
-#pragma warning(default:4996)
-#endif

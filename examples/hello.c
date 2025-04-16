@@ -1,82 +1,6 @@
-/* SPDX-License-Identifier: Zlib
-Copyright (c) 2014 - 2024 Guillaume Vareille http://ysengrin.com
-	 ________________________________________________________________
-	|                                                                |
-	| 100% compatible C C++  ->  You can rename this .c file as .cpp |
-	|________________________________________________________________|
-
-********* TINY FILE DIALOGS OFFICIAL WEBSITE IS ON SOURCEFORGE *********
-  _________
- /         \ hello.c v3.19.1 [Jan 27, 2025]
- |tiny file| Hello World file created [November 9, 2014]
- | dialogs |
- \____  ___/ http://tinyfiledialogs.sourceforge.net
-      \|     git clone http://git.code.sf.net/p/tinyfiledialogs/code tinyfd
-              ____________________________________________
-             |                                            |
-             |   email: tinyfiledialogs at ysengrin.com   |
-             |____________________________________________|
-  _________________________________________________________________________________
- |                                                                                 |
- | the windows only wchar_t UTF-16 prototypes are at the bottom of the header file |
- |_________________________________________________________________________________|
-  _________________________________________________________
- |                                                         |
- | on windows: - since v3.6 char is UTF-8 by default       |
- |             - if you want MBCS set tinyfd_winUtf8 to 0  |
- |             - functions like fopen expect MBCS          |
- |_________________________________________________________|
-  ___________________________________________________________
- |                                                           |
- | v3.10: NEW FORTRAN module fully implemented with examples |
- |            https://stackoverflow.com/a/59657117          |
- |___________________________________________________________|
-
-If you like tinyfiledialogs, please upvote my stackoverflow answer
-https://stackoverflow.com/a/47651444
-
-- License -
-
-This software is provided 'as-is', without any express or implied
-warranty.  In no event will the authors be held liable for any damages
-arising from the use of this software.
-
-including commercial applications, and to alter it and redistribute it
-freely, subject to the following restrictions:
-
-1. The origin of this software must not be misrepresented; you must not
-claim that you wrote the original software.  If you use this software
-in a product, an acknowledgment in the product documentation would be
-appreciated but is not required.
-2. Altered source versions must be plainly marked as such, and must not be
-misrepresented as being the original software.
-3. This notice may not be removed or altered from any source distribution.
-*/
-
-
-/*
-- Here is the Hello World:
-    if a console is missing, it will use graphic dialogs
-    if a graphical display is absent, it will use console dialogs
-		(on windows the input box may take some time to open the first time)
-
-  See compilation instructions at the end of this file
-
-     __________________________________________
-    |  ______________________________________  |
-    | |                                      | |
-    | | DO NOT USE USER INPUT IN THE DIALOGS | |
-    | |______________________________________| |
-    |__________________________________________|
-*/
-
 #include <stdio.h>
 #include <string.h>
 #include "tinyfiledialogs.h"
-
-#ifdef _MSC_VER
-#pragma warning(disable:4996) /* silences warnings about strcpy strcat fopen*/
-#endif
 
 int main( int argc , char * argv[] )
 {
@@ -272,7 +196,3 @@ quit [Cancel]",
 
 	return 0;
 }
-
-#ifdef _MSC_VER
-#pragma warning(default:4996)
-#endif
