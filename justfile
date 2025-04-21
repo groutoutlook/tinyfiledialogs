@@ -28,7 +28,7 @@ alias r := run
 default_args := 'args here'
 run args=default_args:
     @Write-Host {{default_args}} -ForegroundColor Red
-    out\build\x64-debug\bin\hello_tfd.exe
+    bin\hello_tfd.exe
 # INFO: as now it correctly build in VS2022 CMake.
 # TODO: will fix this to run from just easier.
 alias b := build

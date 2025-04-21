@@ -20,7 +20,7 @@ auto main() -> int {
 
 		std::println("folder: {}", retPath.string());
 	}
-	std::println("Press any key to continue...");
+	std::println("Press Enter key to continue...");
 	int ch = std::cin.get();
 	return 0;
 }
