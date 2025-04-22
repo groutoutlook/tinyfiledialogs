@@ -12,11 +12,21 @@ if (PROJECT_IS_TOP_LEVEL)
     set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/bin")
 endif()
 
-add_library(tinyfiledialogs)
 
-# WARN: No glob, since it somehow grabs CmakeCXXCompiler.cpp files which have a placeholder main() symbol there.
-file(GLOB_RECURSE TFD_SRC "./tinyfiledialogs.c" "./tinyfiledialogs.h" "./tinyfd_moredialogs.c" "./tinyfd_moredialogs.h" "./tfd.hpp")
-target_sources(tinyfiledialogs PUBLIC ${TFD_SRC})
+# Main C++ sources
+set(TFD_SOURCES
+    "./tinyfiledialogs.c" 
+    "./tinyfd_moredialogs.c"
+)
+
+set(TFD_HEADERS
+    "./tinyfiledialogs.h" 
+    "./tinyfd_moredialogs.h"
+    "./tfd.hpp"
+)
+
+# Create the C++ library
+add_library(tinyfiledialogs STATIC ${TFD_SOURCES} ${TFD_HEADERS})
 
 target_include_directories(tinyfiledialogs PUBLIC ".")
 target_compile_features(tinyfiledialogs PUBLIC cxx_std_23)

@@ -15,9 +15,7 @@ int main( int argc , char * argv[] )
 	FILE * lIn;
 	char lBuffer[1024];
 	char const * lFilterPatterns[2] = { "*.txt", "*.text" };
-
 	(void)argv; /*to silence stupid visual studio warning*/
-
 	tinyfd_verbose = argc - 1;  /* default is 0 */
 	tinyfd_silent = 1;  /* default is 1 */
 
