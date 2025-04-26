@@ -14,14 +14,9 @@ alias td := todo
 todo todo=default_arg:
     rg {{todo}} -g '!justfile' -g "!third_party" 
 
-hello:
-    @Write-Host "Hello, world!" -ForegroundColor Yellow
-
-placeholder:
+wt:
     #!{{ shebang }}
-    Write-Host "Havent written build task for this repo." -ForegroundColor Red
-    if($env:pwsh_env) {Write-Host "$env:pwsh_env"}
-    else {Write-Host "Apparently no .env as well" -ForegroundColor Yellow}
+    wt -f new-tab -p "Developer PowerShell for VS 2022" -d  {{ invocation_directory() }} --tabColor '#FFFFFF'
 
 # INFO: basic `run` recipe.
 alias r := run
@@ -29,7 +24,12 @@ default_args := 'args here'
 run args=default_args:
     @Write-Host {{default_args}} -ForegroundColor Red
     bin\hello_tfd.exe
-# INFO: as now it correctly build in VS2022 CMake.
-# TODO: will fix this to run from just easier.
+
 alias b := build
-build: placeholder
+build: 
+    cd {{invocation_directory()}} ; ninja all
+
+clean: 
+    cd {{invocation_directory()}} ; ninja clean
+
+
