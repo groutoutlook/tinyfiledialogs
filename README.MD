@@ -1,10 +1,8 @@
 # `tinyfiledialogs` (pure C)
  **NOTE** This is not official repo, check out original author's work at the link below.
-- [tinyfiledialogs C C++ v3.19.3 download in SourceForge](https://sourceforge.net/projects/tinyfiledialogs/)
+- [`tinyfiledialogs` in SourceForge](https://sourceforge.net/projects/tinyfiledialogs/)
 
-v3.19.1 [Jan 27, 2025]
-
-**Forked on 2025-04-10.**
+**Forked 2025-04-10.**
 
 - `Tray-popup InputBox PasswordBox MessageBox Notification Beep ColorPicker OpenFileDialog SaveFileDialog SelectFolderDialog`
 - ASCII UTF-8 (and also MBCS & UTF-16 for Windows)
